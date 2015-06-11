@@ -1,4 +1,4 @@
-from urllib2 import urlopen
+import urllib2
 import json
 import xlwt
 from datetime import datetime
@@ -16,7 +16,18 @@ xlsFileAddr = '/home/eric/dev/jumei'
 
 isSoldOut = False
 
-data = urlopen(targetURL).read()
+#data = urlopen(targetURL).read()
+data = ''
+#req = urllib2.Request(targetURL)
+
+try:
+    data = urllib2.urlopen(targetURL).read()
+except urllib2.URLError as e:
+    print e.reason
+else:
+    print 'Get Jumei data: OK!!!'
+
+
 
 data = data.replace('global_load_callback','')[1:-1]
 
