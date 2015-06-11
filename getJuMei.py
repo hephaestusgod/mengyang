@@ -17,8 +17,8 @@ xlsFileAddr = '/home/eric/dev/jumei'
 isSoldOut = False
 
 #data = urlopen(targetURL).read()
-data = ''
 #req = urllib2.Request(targetURL)
+data = ''
 
 try:
     data = urllib2.urlopen(targetURL).read()
